@@ -1,15 +1,18 @@
 ### Date created
-Include the date you created this project and README file.
+01/03/2019
 
 ### Project Title
-Replace the Project Title
+Explore US Bikeshare Data US
 
 ### Description
-Describe what your project is about and what it does
+This interactive program allows the user to view bike rental data from multiple cities. Bike rental data can be filtered by city, month, and day of the week.
 
 ### Files used
-Include the files used
+bikeshare.py,
+chicago.csv,
+new_york_city.csv,
+washington.csv,
+
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+I would to credit the Udacity for the template in the project workspace for providing inspiration through an outline, comments and suggestions for writing this program.
