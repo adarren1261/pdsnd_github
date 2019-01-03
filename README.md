@@ -16,3 +16,5 @@ washington.csv,
 
 ### Credits
 I would to credit the Udacity for the template in the project workspace for providing inspiration through an outline, comments and suggestions for writing this program.
+
+### Details on the Datasets
