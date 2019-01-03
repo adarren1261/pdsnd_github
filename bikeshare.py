@@ -16,8 +16,8 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     
+    # Ask user for cities month(s) which are valid
     cityValid = None
     while( cityValid is None ):
         selected_city = input('What city to do you want to analyze? (washington, new york city, or chicago)\n').lower()
@@ -27,12 +27,11 @@ def get_filters():
         else:
             city = selected_city
             break
-            
-                        
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+
+    # Ask user for desired month(s) which are valid
     months = {'january', 'february', 'march', 'april', 'may', 'june'}
-    
+
     while True :
         selected_month = input('What month to do you want to analyze? (all, january, february, ... , june)\n').lower()
         if selected_month in months or selected_month == 'all' :
@@ -41,9 +40,9 @@ def get_filters():
         else:
             print('Invalid entry please try again')
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # Ask user for desired day(s) of the week which are valid
     days_of_week = {'monday','tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'}
-    
+
     while True :
         selected_day = input('What day to do you want to analyze? (all, monday, tuesday, ... sunday)\n').lower()
         if selected_day in days_of_week or selected_day == 'all' :
@@ -101,7 +100,7 @@ def time_stats(df):
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
-    ####print( df['month'].value_counts().index[0] )
+
     # TO DO: display the most common month
     months = ['january', 'february', 'march', 'april', 'may', 'june']
     max_month =  months[df['month'].value_counts().index[0] - 1]
@@ -112,8 +111,8 @@ def time_stats(df):
     # TO DO: display the most common start hour
     max_hour = df['Start Time'].dt.hour.value_counts().index[0]
     print( 'Most common hour of the day is {}'.format( max_hour ) )
-          
-         
+
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -127,17 +126,17 @@ def station_stats(df):
     # TO DO: display most commonly used start station
     max_Start_station = df['Start Station'].value_counts().index[0]
     print( 'Most common start station is {}.'.format( max_Start_station ) )
-    
+
     # TO DO: display most commonly used end station
     max_End_station = df['End Station'].value_counts().index[0]
     print( 'Most common end station is {}.'.format( max_End_station ) )
-          
+
     # TO DO: display most frequent combination of start station and end station trip
     df_stations = df.groupby(['Start Station','End Station']).size().reset_index(name='Count').sort_values(by=['Count'],ascending=False)
 
-    ###print(df_stations.head(3) )
+
     print('The most common start and end station combination is from {} to {}.'.format(df_stations['Start Station'].iloc[0], df_stations['End Station'].iloc[0] ) )
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -171,7 +170,7 @@ def user_stats(df):
         print( '\nHere the gender counts: \n {}.'.format(df['Gender'].value_counts() ) )
     except KeyError:
         print('\nThere is no gender data in this dataset.\n')
-        
+
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         print( df['Birth Year'].head(5) )
@@ -181,16 +180,16 @@ def user_stats(df):
         print("\nThis took %s seconds." % (time.time() - start_time))
     except KeyError:
         print('\nThere is no birth-year data in this dataset.\n')
-            
-      
+
+
     print('-'*40)
 
 def raw_data(df):
     """
     Allows the user to view the loaded and filtered raw data.
-    
+
     """
-        
+
     view_raw_data = input('\nWould you like to view the raw data? Enter yes or no.\n')
     index = 0
     increment = 5
@@ -200,8 +199,8 @@ def raw_data(df):
         view_more = input('Continue viewing data? Enter yes or no.\n')
         if view_more.lower() == 'yes':
             continue
-        else: 
-            break            
+        else:
+            break
         break
 
 def main():
